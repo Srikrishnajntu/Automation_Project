@@ -31,4 +31,8 @@ then
 		}>> "/var/www/html/inventory.html"
 	fi
 fi
+if ! sudo test -f "/etc/cron.d/automation"
+then
+	sudo bash -c 'echo "0 0 * * * root /root/Automation_Project/automation.sh" > "/etc/cron.d/automation"'
+fi
 exit
